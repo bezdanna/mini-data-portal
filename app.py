@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
 
+# Hide the default Streamlit header, GitHub icons, and footer
+hide_menu_style = """
+        <style>
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 # 1. The Core Data Skeleton
 raw_data = {
     "title": ["Inception", "Interstellar", "The Notebook", "Gladiator", "Superbad"],
