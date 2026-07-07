@@ -1,16 +1,23 @@
 import streamlit as st
 import pandas as pd
 
-# Updated CSS to hide the header, the "Deploy" button, and the footer
-hide_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    div[data-testid="stDecoration"] {display: none;}
-    </style>
-    """
-st.markdown(hide_style, unsafe_allow_html=True)
+# This MUST be the first Streamlit command right after your imports
+st.set_page_config(layout="wide")
+
+# The updated, foolproof way to hide all Streamlit branding
+hide_styles = """
+<style>
+/* Hides the entire top decoration bar and menus */
+[data-testid="stHeader"] {
+    display: none !important;
+}
+/* Hides the default Streamlit footer at the bottom */
+footer {
+    visibility: hidden !important;
+}
+</style>
+"""
+st.markdown(hide_styles, unsafe_allow_html=True)
 
 # 1. The Core Data Skeleton
 raw_data = {
